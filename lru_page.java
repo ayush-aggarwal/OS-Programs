@@ -78,7 +78,7 @@ public class lru_page
 			}
 			j=j+1;
 		}
-		fault=fault+1;
+		//fault=fault+1;
 		for(int i=j;i<no;i++)
 		{
 			z=check(pt,pgarr[i]);
