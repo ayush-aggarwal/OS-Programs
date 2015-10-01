@@ -16,7 +16,7 @@ public class fifo_page
 	}
 	public static void display(int pt[])
 	{
-		System.out.println("Stack Status:- ");
+		System.out.println("Queue Status:- ");
 		for(int i=0;i<row;i++)
 		{
 			System.out.print(pt[i]+"\t");
@@ -56,7 +56,11 @@ public class fifo_page
 			z=check(pt,pgarr[i]);
 			if(z==0)
 			{
-				pt[0]=pgarr[i];
+				for(int h=0;h<row-1;h++)
+				{
+					pt[h]=pt[h+1];
+				}
+				pt[row-1]=pgarr[i];
 				display(pt);
 				fault=fault+1;
 			}
