@@ -3,6 +3,17 @@ import java.util.*;
 public class fifo_page
 {
 	public static int row;
+	public static int check(int pt[],int no)
+	{
+		for(int i=0;i<row;i++)
+		{
+			if(pt[i]==no)
+			{
+				return 1;
+			}
+		}
+		return 0;
+	}
 	public static void display(int pt[])
 	{
 		System.out.println("Stack Status:- ");
@@ -27,18 +38,28 @@ public class fifo_page
 		{
 			pgarr[i]=sc.nextInt();
 		}
-		int k;
-		for(k=0;k<row;k++)
+		int k=0,z,j=0;
+		while(k<row)
 		{
-			pt[k]=pgarr[k];
-			display(pt);
+			z=check(pt,pgarr[j]);
+			if(z==0)
+			{
+				pt[k]=pgarr[j];
+				k=k+1;
+				display(pt);
+			}
+			j=j+1;
 		}
 		fault=fault+1;
-		for(int i=k;i<no;i++)
+		for(int i=j;i<no;i++)
 		{
-			pt[0]=pgarr[i];
-			display(pt);
-			fault=fault+1;
+			z=check(pt,pgarr[i]);
+			if(z==0)
+			{
+				pt[0]=pgarr[i];
+				display(pt);
+				fault=fault+1;
+			}
 		}
 		System.out.println("Total Page Faults:- "+fault);		
 	}
