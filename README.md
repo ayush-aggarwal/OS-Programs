@@ -1,2 +1,2 @@
 # OS-Programs
-This is thee simulation programs of various concepts of scheduling,file management, deadlock and LRU algorothms of various Operating Systems
+This is the simulation programs of various concepts of scheduling,file management, deadlock and page replacement algorithms as done by various Operating Systems
