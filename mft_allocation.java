@@ -19,7 +19,7 @@ public class mft_allocation
 	}	
 	public static void main(String args[]) throws IOException
 	{
-		int memory=1000,no_part=10,reqd_part,t=0,block_size=100;
+		int memory=1000,no_part=10,reqd_part,t=0,block_size=100,frag=0;
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Please enter the number of Files:- ");
 		no=sc.nextInt();
@@ -58,10 +58,15 @@ public class mft_allocation
 					end[i]=start[i]+(reqd_part*block_size);
 					t=end[i];
 					status[i]="Allocated";
+					if(size[i]%block_size!=0)
+					{
+						frag=frag+(block_size-(size[i]%block_size));
+					}
 				}
 			}
 		}
 		display();		
+		System.out.println("Total Internal Fragmentation:- "+frag);
 	}
 }
 		
